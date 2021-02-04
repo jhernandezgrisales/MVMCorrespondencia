@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVMCorrespondencia.Models.Correspondeciainterna>
+
+@{
+    ViewData["Title"] = "Correspondencia Interna";
+}
+
+<h1>Correspondencia Interna</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha Radicado
+            </th>
+            <th>
+                Numero Radicado
+            </th>
+            <th>
+               Usuario Destinatario
+            </th>
+            <th>
+                Usuario Remitente
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Radicadointerna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdcontactodestinatarioNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdcontactoremitenteNavigation.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Consecutivointerna">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Consecutivointerna">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Consecutivointerna">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

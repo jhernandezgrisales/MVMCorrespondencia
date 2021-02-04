@@ -1,0 +1,42 @@
+﻿@model MVMCorrespondencia.Models.Correspondeciainterna
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Correspondeciainterna</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha radicado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            Radicado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Radicadointerna)
+        </dd>
+        <dt class = "col-sm-2">
+           Destinatario
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdcontactodestinatarioNavigation.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+           Remitente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdcontactoremitenteNavigation.Nombre)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Consecutivointerna">Editar</a> |
+    <a asp-action="Index">Volver a lista</a>
+</div>

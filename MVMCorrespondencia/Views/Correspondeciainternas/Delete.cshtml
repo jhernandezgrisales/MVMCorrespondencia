@@ -1,0 +1,45 @@
+﻿@model MVMCorrespondencia.Models.Correspondeciainterna
+
+@{
+    ViewData["Title"] = "Borrar";
+}
+
+<h1>Borrar</h1>
+
+<h3>Deseas borrar el registro?</h3>
+<div>
+    <h4>Correspondeciainterna</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha radicacion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            Radicado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Radicadointerna)
+        </dd>
+        <dt class = "col-sm-2">
+           Destinatario
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdcontactodestinatarioNavigation.Nombre)
+        </dd class>
+        <dt class = "col-sm-2">
+           Remitente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdcontactoremitenteNavigation.Nombre)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Consecutivointerna" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Devolver a lista</a>
+    </form>
+</div>
